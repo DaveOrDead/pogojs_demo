@@ -1,0 +1,19 @@
+#
+# Configuration settings for PoGoStack Server
+#
+#
+
+### Mandatory parameters ###
+
+config_connection_string user=role_test dbname=db_pogo_js sslmode=disable
+config_default_page index
+allow index
+allow my_content
+allow assets/main.min.js
+allow team_table
+
+### Optional parameters ###
+
+config_server_name PogoJS
+#config_listen_address localhost:4200
+#config_authentication_type basic
