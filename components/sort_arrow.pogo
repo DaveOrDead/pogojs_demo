@@ -19,18 +19,18 @@ p_url varchar
 %>
 <button
     class="pogo-route <% if p_sort = p_column || '-a' then %>is-active<% end if; %>"
-    data-pogo-target-container="<%= p_container %>"
-    data-pogo-target-url="<%= p_url %>"
-    data-pogo-params='{"p_sort": "<%= p_column || '-a' %>"}'
+    pogo-target-container="<%= p_container %>"
+    pogo-target-url="<%= p_url %>"
+    pogo-params='{"p_sort": "<%= p_column || '-a' %>"}'
     type="button">
     Sort Ascending
 </button>
 
 <button
     class="pogo-route <% if p_sort = p_column || '-d' then %>is-active<% end if; %>"
-    data-pogo-target-container="<%= p_container %>"
-    data-pogo-target-url="<%= p_url %>"
-    data-pogo-params='{"p_sort": "<%= p_column || '-d' %>"}'
+    pogo-target-container="<%= p_container %>"
+    pogo-target-url="<%= p_url %>"
+    pogo-params='{"p_sort": "<%= p_column || '-d' %>"}'
     type="button">
     Sort Descending
 </button>
