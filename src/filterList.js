@@ -1,20 +1,19 @@
 import attachEvent from './utils/attachEvent';
 import get from './utils/get';
+import pogoAttributes from './pogoAttributes';
 import {fetchPogoState, updatePogoState} from './pogoState';
 
 
 function filter(e) {
     const el = e.target;
-    const containerId = el.getAttribute('pogo-target-container');
-    const targetUrl = el.getAttribute('pogo-target-url');
-    const pogoParams =  el.getAttribute('pogo-params');
-    const container = document.getElementById(containerId);
+    const {targetContainer, targetUrl, params} = pogoAttributes(el);
+    const container = document.getElementById(targetContainer);
 
     updatePogoState(
         targetUrl,
         Object.assign(
             {},
-            JSON.parse(pogoParams || '{}'),
+            JSON.parse(params || '{}'),
             {p_filter: el.value}
         )
     );

@@ -1,25 +1,22 @@
 import attachEvent from './utils/attachEvent';
 import get from './utils/get';
+import pogoAttributes from './pogoAttributes';
 import {fetchPogoState, updatePogoState} from './pogoState';
 
 
 function go(e) {
-    const el = e.target;
-    const containerId = el.getAttribute('pogo-target-container');
-    const targetUrl = el.getAttribute('pogo-target-url');
-    const pogoParams =  el.getAttribute('pogo-params');
-
-
     // stop links redirecting
     if (e.target.matches('a')) e.preventDefault();
 
-    const container = document.getElementById(containerId);
+    const el = e.target;
+    const {targetContainer, targetUrl, params} = pogoAttributes(el);
+    const container = document.getElementById(targetContainer);
 
     updatePogoState(
         targetUrl,
         Object.assign(
             {},
-            JSON.parse(pogoParams || '{}')
+            JSON.parse(params || '{}')
         )
     );
     const data = fetchPogoState(targetUrl);
