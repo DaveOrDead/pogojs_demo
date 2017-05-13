@@ -20,27 +20,19 @@ button.is-active {
   border: 2px solid pink;
 }
 
+.app-header {
+  height: 2rem;
+  background-color: orange;
+}
+
 </style>
 </head>
 
 <body>
 
-  <div id="app_header">
-    <div id="tasks_count">5</div>
+  <div id="app_header" class="app-header">
+    Tasks <div id="tasks_count">5</div>
   </div>
-
-  <div id="id_mc_face"></div>
-
-  <button
-    class="pogo-route"
-    pogo-target-container="id_mc_face"
-    pogo-target-url="my_content"
-    pogo-params='{}'
-    type="button">
-    Load
-  </button>
-
-
 
   <form>
     <label for="filter_people">Filter:</label>
@@ -58,6 +50,33 @@ button.is-active {
     <%= psp_team_table('', CU) %>
   </div>
 
+
+
+  <div id="id_mc_face"></div>
+
+<form
+  action="add_person_async"
+  autocomplete="off"
+  class="pogo-submit"
+  novalidate
+>
+  <div>
+    <label for="first_name">First name:</label>
+    <input id="first_name" name="first_name" type="text">
+  </div>
+  <div>
+    <label for="last_name">Last name:</label>
+    <input id="last_name" name="last_name" type="text">
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" name="email" type="email">
+  </div>
+  <button
+    type="submit">
+    Add
+  </button>
+</form>
 
 </body>
 
