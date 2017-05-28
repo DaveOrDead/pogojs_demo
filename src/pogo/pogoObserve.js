@@ -1,5 +1,5 @@
 import pogoState from './pogoState';
-import get from './utils/get';
+import get from './../utils/get';
 
 
 const Observable = function() {

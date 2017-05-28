@@ -1,10 +1,6 @@
 import post from './utils/post';
-import pogoBind from './pogoBind';
-import {register} from './pogoMap';
+import {fetchPogoState, updatePogoState, pogoAttributes, pogoBind, register, store} from './pogo';
 import formToJSON from './utils/formToJSON';
-import {fetchPogoState, updatePogoState} from './pogoState';
-import store from './pogoObserve';
-import pogoAttributes from './pogoAttributes';
 
 
 function save(e) {

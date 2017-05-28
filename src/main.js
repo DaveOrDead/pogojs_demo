@@ -1,8 +1,8 @@
 import route from './route';
 import filterList from './filterList';
 import saveRecord from './saveRecord';
-import store from './pogoObserve';
-import pogoBind from './pogoBind';
+import {store, pogoBind} from './pogo';
+
 
 const tasks = state => {
     if(state.team_table) {

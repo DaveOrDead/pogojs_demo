@@ -1,4 +1,4 @@
-import getCustomAttributeSet from './utils/getCustomAttributeSet';
+import getCustomAttributeSet from './../utils/getCustomAttributeSet';
 
 const pogoAttributes = el => getCustomAttributeSet(el, 'pogo-');
 

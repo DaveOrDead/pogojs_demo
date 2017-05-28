@@ -1,8 +1,6 @@
 import get from './utils/get';
-import pogoAttributes from './pogoAttributes';
-import {register} from './pogoMap';
-import pogoBind from './pogoBind';
-import {fetchPogoState, updatePogoState} from './pogoState';
+import {fetchPogoState, updatePogoState, pogoAttributes, pogoBind, register} from './pogo';
+
 
 
 function go(e) {

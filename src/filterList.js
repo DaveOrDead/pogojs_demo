@@ -1,9 +1,5 @@
 import get from './utils/get';
-import pogoAttributes from './pogoAttributes';
-import pogoBind from './pogoBind';
-import {register} from './pogoMap';
-import {fetchPogoState, updatePogoState} from './pogoState';
-import store from './pogoObserve';
+import {fetchPogoState, updatePogoState, pogoAttributes, pogoBind, register, store} from './pogo';
 
 
 function filter(e) {

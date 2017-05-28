@@ -1,6 +1,6 @@
 import pogoMap from './pogoMap';
-import each from './utils/each';
-import hyphenToCamelCase from './utils/hyphenToCamelCase';
+import each from './../utils/each';
+import hyphenToCamelCase from './../utils/hyphenToCamelCase';
 
 /**
  * Gets all `pogo-` classes and either binds events or triggers their initialisation functions by
