@@ -1,6 +1,7 @@
-import attachEvent from './utils/attachEvent';
 import get from './utils/get';
 import pogoAttributes from './pogoAttributes';
+import {register} from './pogoMap';
+import pogoBind from './pogoBind';
 import {fetchPogoState, updatePogoState} from './pogoState';
 
 
@@ -26,12 +27,17 @@ function go(e) {
         data,
         success: result => {
             container.innerHTML = result;
+            pogoBind(container);
         }
     });
 }
 
 const route = () => {
-    attachEvent('pogo-route', 'click', go);
+    register({
+        hook: 'route',
+        type: 'click',
+        func: go
+    });
 };
 
 

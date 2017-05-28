@@ -1,26 +1,41 @@
 import post from './utils/post';
-import attachEvent from './utils/attachEvent';
+import pogoBind from './pogoBind';
+import {register} from './pogoMap';
 import formToJSON from './utils/formToJSON';
+import {fetchPogoState, updatePogoState} from './pogoState';
+import store from './pogoObserve';
+import pogoAttributes from './pogoAttributes';
 
 
 function save(e) {
     e.preventDefault();
     const form = e.target;
     const data = formToJSON(form.elements);
-
-    console.log(data);
+    const {streams} = pogoAttributes(form);
 
     post({
         url: form.action,
         data,
         success: result => {
-            console.log(result);
+            updatePogoState(
+                streams,
+                Object.assign(
+                    {},
+                    {"update": true}
+                )
+            );
+            pogoBind();
+            store.publish(streams);
         }
     })
 }
 
 const saveRecord = () => {
-    attachEvent('pogo-submit', 'submit', save);
+    register({
+        hook: 'submit',
+        type: 'submit',
+        func: save
+    });
 };
 
 
