@@ -4,30 +4,18 @@ import {fetchPogoState, updatePogoState, pogoAttributes, pogoBind, register, sto
 
 function filter(e) {
     const el = e.target;
-    //const {streams, params} = pogoAttributes(el);
-    const {targetContainer, targetUrl, params} = pogoAttributes(el);
-    const container = document.getElementById(targetContainer);
+    const {publish, params} = pogoAttributes(el);
 
     updatePogoState(
-        targetUrl,
+        publish,
         Object.assign(
             {},
             JSON.parse(params || '{}'),
             {p_filter: el.value}
         )
     );
-    const data = fetchPogoState(targetUrl);
 
-    get({
-        url: targetUrl,
-        data,
-        success: result => {
-            container.innerHTML = result;
-            pogoBind(container);
-        }
-    });
-
-    store.publish(targetUrl);
+    store.publish(publish);
 }
 
 

@@ -13,6 +13,7 @@ Observable.prototype = {
         this.subscribers[stream] = this.subscribers[stream] || [];
         this.subscribers[stream].push(cb);
     },
+
     unsubscribe: function(stream, cb) {
         const items = this.subscribers[stream] || [];
         for (let i = 0; i < items.length; i++) {
@@ -23,12 +24,12 @@ Observable.prototype = {
         }
     },
 
-    publish: function(streams) {
+    publish: function(...streams) {
         var self = this;
         streams.map(stream => {
             const subs = self.subscribers[stream] || [];
             subs.map((s, i) => {
-                self.subscribers[stream][i]();
+                self.subscribers[stream][i](pogoState[stream]);
             });
         });
     }

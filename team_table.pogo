@@ -18,13 +18,13 @@ p_sort varchar first_name-d
    <thead>
       <tr>
          <th>First Name
-            <%= psp_sort_arrow('p_container=id_team_table&p_url=team_table&p_sort=' || p_sort || '&p_column=first_name', CU) %>
+            <%= psp_sort_arrow('p_publish=clients&p_sort=' || p_sort || '&p_column=first_name', CU) %>
          </th>
          <th>Last Name
-            <%= psp_sort_arrow('p_container=id_team_table&p_url=team_table&p_sort=' || p_sort || '&p_column=last_name', CU) %>
+            <%= psp_sort_arrow('p_publish=clients&p_sort=' || p_sort || '&p_column=last_name', CU) %>
         </th>
          <th>Email
-            <%= psp_sort_arrow('p_container=id_team_table&p_url=team_table&p_sort=' || p_sort || '&p_column=email', CU) %>
+            <%= psp_sort_arrow('p_publish=clients&p_sort=' || p_sort || '&p_column=email', CU) %>
         </th>
       </tr>
    </thead>

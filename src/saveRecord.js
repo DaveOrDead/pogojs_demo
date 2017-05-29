@@ -13,7 +13,7 @@ function save(e) {
         data,
         success: result => {
             const res = JSON.parse(result);
-            store.publish(res.streams)
+            store.publish(res.streams);
         }
     })
 }

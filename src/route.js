@@ -1,5 +1,5 @@
 import get from './utils/get';
-import {fetchPogoState, updatePogoState, pogoAttributes, pogoBind, register} from './pogo';
+import {fetchPogoState, updatePogoState, pogoAttributes, pogoBind, register, store} from './pogo';
 
 
 
@@ -8,26 +8,17 @@ function go(e) {
     if (e.target.matches('a')) e.preventDefault();
 
     const el = e.target;
-    const {targetContainer, targetUrl, params} = pogoAttributes(el);
-    const container = document.getElementById(targetContainer);
+    const {publish, params} = pogoAttributes(el);
 
     updatePogoState(
-        targetUrl,
+        publish,
         Object.assign(
             {},
             JSON.parse(params || '{}')
         )
     );
-    const data = fetchPogoState(targetUrl);
 
-    get({
-        url: targetUrl,
-        data,
-        success: result => {
-            container.innerHTML = result;
-            pogoBind(container);
-        }
-    });
+    store.publish(publish);
 }
 
 const route = () => {
