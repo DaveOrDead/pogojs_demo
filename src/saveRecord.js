@@ -7,21 +7,13 @@ function save(e) {
     e.preventDefault();
     const form = e.target;
     const data = formToJSON(form.elements);
-    const {streams} = pogoAttributes(form);
 
     post({
         url: form.action,
         data,
         success: result => {
-            updatePogoState(
-                streams,
-                Object.assign(
-                    {},
-                    {"update": true}
-                )
-            );
-            pogoBind();
-            store.publish(streams);
+            const res = JSON.parse(result);
+            store.publish(res.streams)
         }
     })
 }

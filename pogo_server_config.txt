@@ -11,6 +11,7 @@ allow index
 allow my_content
 allow assets/main.min.js
 allow team_table
+allow task_count
 allow add_person_async
 
 ### Optional parameters ###

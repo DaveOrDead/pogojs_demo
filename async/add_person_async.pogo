@@ -16,7 +16,7 @@ email varchar
 
 ?><%
 
-	
+
     insert into team_members
     (
         first_name, last_name, email
@@ -26,8 +26,17 @@ email varchar
         first_name, last_name, email
     )
     returning id into x_person;
-		
 
-	return pogo_return_OK('{ "status": "success" }');
+    insert into tasks
+    (
+    text
+    )
+    values
+    (
+        'Please contact ' || first_name || ' ' || last_name || ' on email: ' || email
+    );
+
+
+	return pogo_return_OK('{ "status": "success", "streams": ["tasks", "clients"] }');
 
 %>

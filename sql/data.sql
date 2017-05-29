@@ -19,3 +19,10 @@ insert into team_members (first_name, last_name, email) values
    ('Alliser' , 'Thorne'     , 'ali@watcheronthewall.org' ),
    ('Alex'    , 'Nedoboi'    , 'alex@pogostack.org'       )
 ;
+
+create table tasks
+(
+   id serial,
+   text varchar
+);
+

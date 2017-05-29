@@ -1,5 +1,7 @@
 import pogoState from './pogoState';
+import pogoBind from './pogoBind';
 import get from './../utils/get';
+import each from './../utils/each';
 
 
 const Observable = function() {
@@ -21,26 +23,14 @@ Observable.prototype = {
         }
     },
 
-    publish: function(stream, state = pogoState) {
-        const items = this.subscribers[stream] || [];
-        for (let i = 0; i < items.length; i++) {
-            this.subscribers[stream][i](state);
-        }
-        // const els = document.querySelectorAll(`[pogo-streams="${stream}"]`);
-
-        // for (let i = 0; i < els.length; i++) {
-        //     const {targetContainer, targetUrl} = pogoAttributes(el);
-        //     const container = document.getElementById(targetContainer);
-
-        //     get({
-        //         url: stream,
-        //         data: pogoState[stream],
-        //         success: result => {
-        //             container.innerHTML = result;
-        //         }
-        //     });
-        // }
-
+    publish: function(streams) {
+        var self = this;
+        streams.map(stream => {
+            const subs = self.subscribers[stream] || [];
+            subs.map((s, i) => {
+                self.subscribers[stream][i]();
+            });
+        });
     }
 };
 

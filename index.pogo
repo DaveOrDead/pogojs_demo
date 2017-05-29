@@ -31,8 +31,13 @@ button.is-active {
 <body>
 
   <div id="app_header" class="app-header">
-    Tasks <div id="tasks_count">5</div>
+    Character <div id="tasks_count">5</div>
   </div>
+
+
+  <div id="id_task_count" class="pogo-subscribe" pogo-streams="tasks" pogo-reload="task_count">
+    <%= psp_task_count('', CU) %>
+</div>
 
   <form>
     <label for="filter_people">Filter:</label>
@@ -46,7 +51,7 @@ button.is-active {
       autofocus>
   </form>
 
-  <div id="id_team_table">
+  <div id="id_team_table" class="pogo-subscribe" pogo-streams="clients" pogo-reload="team_table">
     <%= psp_team_table('', CU) %>
   </div>
 
