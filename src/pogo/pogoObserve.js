@@ -29,7 +29,7 @@ Observable.prototype = {
         streams.map(stream => {
             const subs = self.subscribers[stream] || [];
             subs.map((s, i) => {
-                self.subscribers[stream][i](pogoState[stream]);
+                self.subscribers[stream][i](pogoState[stream] || {});
             });
         });
     }
