@@ -1,8 +1,9 @@
 const pogoState = {};
 
-export function updatePogoState(key, params) {
-    pogoState[key] = pogoState[key] || {};
-    Object.assign(pogoState[key], params);
+export function updatePogoState(...newState) {
+    newState.map(item => {
+        Object.assign(pogoState, item);
+    })
     console.log(pogoState);
 }
 

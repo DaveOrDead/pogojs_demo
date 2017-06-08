@@ -20,14 +20,18 @@ p_publish varchar
     class="pogo-route <% if p_sort = p_column || '-a' then %>is-active<% end if; %>"
     pogo-publish="<%= p_publish %>"
     pogo-params='{"p_sort": "<%= p_column || '-a' %>"}'
-    type="button">
-    Sort Ascending
+    type="button"
+    <% if p_sort = p_column || '-a' then %>disabled<% end if; %>>
+    <span class="sr-only">Sort Ascending</span>
+    <span class="caret" aria-hidden="true"></span>
 </button>
 
 <button
     class="pogo-route <% if p_sort = p_column || '-d' then %>is-active<% end if; %>"
     pogo-publish="<%= p_publish %>"
     pogo-params='{"p_sort": "<%= p_column || '-d' %>"}'
-    type="button">
-    Sort Descending
+    type="button"
+    <% if p_sort = p_column || '-d' then %>disabled<% end if; %>>
+    <span class="sr-only">Sort Descending</span>
+    <span class="caret caret-reversed" aria-hidden="true"></span>
 </button>

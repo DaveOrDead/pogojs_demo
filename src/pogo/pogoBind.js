@@ -18,7 +18,7 @@ function pogoBind(context = document) {
             if (pogoMap[key]) {
                 const { type, func } = pogoMap[key];
                 if (type === 'immediate') {
-                    onloadFuncs = [...onloadFuncs, func.bind(null, context, el)];
+                    onloadFuncs = [...onloadFuncs, func.bind(null, el, context)];
                 } else {
                     el.addEventListener(type, func);
                 }

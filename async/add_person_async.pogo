@@ -17,7 +17,7 @@ email varchar
 ?><%
 
 
-    insert into team_members
+    insert into clients
     (
         first_name, last_name, email
     )
@@ -37,6 +37,6 @@ email varchar
     );
 
 
-	return pogo_return_OK('{ "status": "success", "streams": ["tasks", "clients"] }');
+	return pogo_return_OK('{ "status": "success", "streams": ["addTask", "addClient"] }');
 
 %>

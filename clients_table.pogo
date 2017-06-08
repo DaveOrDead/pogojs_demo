@@ -1,9 +1,9 @@
-# Pogo team members table
+# Pogo clients table
 #
 #
 
 
-team_table
+clients_table
 
 p_filter varchar
 p_sort varchar first_name-d
@@ -14,24 +14,24 @@ p_sort varchar first_name-d
 ?><%
 %>
 
-<table>
+<table class="table table-striped">
    <thead>
       <tr>
          <th>First Name
-            <%= psp_sort_arrow('p_publish=clients&p_sort=' || p_sort || '&p_column=first_name', CU) %>
+            <%= psp_sort_arrow('p_publish=sortClientList&p_sort=' || p_sort || '&p_column=first_name', CU) %>
          </th>
          <th>Last Name
-            <%= psp_sort_arrow('p_publish=clients&p_sort=' || p_sort || '&p_column=last_name', CU) %>
+            <%= psp_sort_arrow('p_publish=sortClientList&p_sort=' || p_sort || '&p_column=last_name', CU) %>
         </th>
          <th>Email
-            <%= psp_sort_arrow('p_publish=clients&p_sort=' || p_sort || '&p_column=email', CU) %>
+            <%= psp_sort_arrow('p_publish=sortClientList&p_sort=' || p_sort || '&p_column=email', CU) %>
         </th>
       </tr>
    </thead>
 <%
    for r in
    (
-      select first_name, last_name, email from team_members
+      select first_name, last_name, email from clients
       where (
 				p_filter = ''
 				or first_name ilike '%' || p_filter || '%'

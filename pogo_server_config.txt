@@ -8,10 +8,11 @@
 config_connection_string user=role_test dbname=db_pogo_js sslmode=disable
 config_default_page index
 allow index
-allow my_content
 allow assets/main.min.js
-allow team_table
+allow clients_table
 allow task_count
+allow clients_tab
+allow tasks_tab
 allow add_person_async
 
 ### Optional parameters ###

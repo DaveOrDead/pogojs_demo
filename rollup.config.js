@@ -20,7 +20,7 @@ export default {
          output: {
             comments: false
          },
-         sourceMap: false
+         sourceMap: true
       }),
       resolve({
       // use "main" field or index.js, even if it's not an ES6 module

@@ -14,4 +14,4 @@ task_count
     select count(1) into tasks from tasks;
 %>
 
-<p>Tasks: <%= tasks %>
+<span class="badge"><%= tasks %></span>

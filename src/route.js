@@ -10,12 +10,15 @@ function go(e) {
     const el = e.target;
     const {publish, params} = pogoAttributes(el);
 
-    updatePogoState(
-        publish,
-        Object.assign(
-            {},
-            JSON.parse(params || '{}')
-        )
+    updatePogoState({
+            previouslyFocusedElement: el
+        }, {
+        [publish]:
+            Object.assign(
+                {},
+                JSON.parse(params || '{}'),
+            )
+        }
     );
 
     store.publish(publish);

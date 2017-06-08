@@ -2,3 +2,4 @@
 .DS_Store
 /.vscode
 /assets/main.min.js
+/npm-debug.log
