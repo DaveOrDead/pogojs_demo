@@ -11,7 +11,6 @@ const Observable = function() {
 Observable.prototype = {
     subscribe: function(streams, cb) {
         const subs = streams.trim().split(/\s+/);
-        console.log(subs);
         var self = this;
         subs.map(stream => {
             self.subscribers[stream] = self.subscribers[stream] || [];

@@ -14,7 +14,7 @@ p_sort varchar first_name-d
 ?><%
 %>
 
-<table>
+<table class="table table-striped">
    <thead>
       <tr>
          <th>First Name
@@ -33,12 +33,12 @@ p_sort varchar first_name-d
    (
       select first_name, last_name, email from clients
       where (
-				p_filter = ''
-				or first_name ilike '%' || p_filter || '%'
-				or last_name ilike '%' || p_filter || '%'
-				or first_name || ' ' || last_name ilike '%' || p_filter || '%'
-				or email ilike '%' || p_filter || '%'
-			)
+        p_filter = ''
+        or first_name ilike '%' || p_filter || '%'
+        or last_name ilike '%' || p_filter || '%'
+        or first_name || ' ' || last_name ilike '%' || p_filter || '%'
+        or email ilike '%' || p_filter || '%'
+        )
       order by
         (case when p_sort = 'first_name-a' then first_name else '' end) asc,
         (case when p_sort = 'first_name-d' then first_name else '' end) desc,

@@ -44,7 +44,7 @@ p_tab varchar c
     <div class="container-fluid">
 
       <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
+      <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 20px;">
         <li role="presentation" <% if p_tab = 'c' then %>class="active"<% end if; %>>
             <a href="#home" aria-controls="id_tab_magic" role="tab" class="pogo-tab <% if p_tab = 'c' then %>  pogo-default-tab<% end if; %>" pogo-load="clients_tab">Clients</a>
         </li>

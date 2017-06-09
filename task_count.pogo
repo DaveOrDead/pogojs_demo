@@ -14,4 +14,4 @@ task_count
     select count(1) into tasks from tasks;
 %>
 
-<span class="badge"><%= tasks %></span>
+<span class="badge" style="pointer-events: none;"><%= tasks %></span>
