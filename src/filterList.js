@@ -1,10 +1,10 @@
 import get from './utils/get';
-import {fetchPogoState, updatePogoState, pogoAttributes, pogoBind, register, store} from './pogo';
+import {fetchPogoState, updatePogoState, pogoset, pogoBind, register, store} from './pogo';
 
 
 function filter(e) {
     const el = e.target;
-    const {publish, params} = pogoAttributes(el);
+    const {publish, params} = pogoset(el);
 
     updatePogoState(
         publish,

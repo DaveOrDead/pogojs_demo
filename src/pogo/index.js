@@ -1,4 +1,4 @@
-import pogoAttributes from './pogoAttributes';
+import pogoset from './pogoset';
 import pogoBind from './pogoBind';
 import pogoMap, {register} from './pogoMap';
 import store from './pogoObserve';
@@ -7,7 +7,7 @@ import {fetchPogoState, updatePogoState} from './pogoState';
 
 export {
     fetchPogoState,
-    pogoAttributes,
+    pogoset,
     pogoBind,
     pogoMap,
     updatePogoState,

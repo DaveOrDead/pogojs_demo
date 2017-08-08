@@ -16,12 +16,14 @@ function pogoBind(context = document) {
         hooks.map(hook => {
             const key = hyphenToCamelCase(hook.slice(5)); // removes `pogo-`
             if (pogoMap[key]) {
-                const { type, func } = pogoMap[key];
-                if (type === 'immediate') {
-                    onloadFuncs = [...onloadFuncs, func.bind(null, el, context)];
-                } else {
-                    el.addEventListener(type, func);
-                }
+                pogoMap[key].map(item => {
+                    const { type, func } = item;
+                    if (type === 'immediate') {
+                        onloadFuncs = [...onloadFuncs, func.bind(null, el, context)];
+                    } else {
+                        el.addEventListener(type, func);
+                    }
+                });
             }
         });
     });

@@ -1,5 +1,5 @@
 import post from './utils/post';
-import {fetchPogoState, updatePogoState, pogoAttributes, pogoBind, register, store} from './pogo';
+import {fetchPogoState, updatePogoState, pogoset, pogoBind, register, store} from './pogo';
 import formToJSON from './utils/formToJSON';
 
 

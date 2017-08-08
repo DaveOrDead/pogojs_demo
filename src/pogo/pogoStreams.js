@@ -1,5 +1,6 @@
 import pogoMap, {register} from './pogoMap';
 import pogoBind from './pogoBind';
+import pogoset from './pogoset';
 import streams from './pogoObserve';
 import state from './pogoState';
 import get from './../utils/get';
@@ -23,7 +24,8 @@ export function reload(url, container, data = {}) {
 }
 
 function pogoStreams(el) {
-    streams.subscribe(el.getAttribute('pogo-streams'), (params) => reload(el.getAttribute('pogo-reload'), el, params));
+    const { streams, reload } = pogoset(el);
+    streams.subscribe(streams, params => reload(reload, el, params));
 }
 
 
