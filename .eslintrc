@@ -1,0 +1,7 @@
+{
+    "extends": "airbnb/base",
+    "rules": {
+        "indent": [2, 4],
+        "no-use-before-define": [1, { "functions": true, "classes": true }]
+    }
+}

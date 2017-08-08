@@ -1,4 +1,4 @@
-import pogoMap, {register} from './pogoMap';
+import { register } from './pogoMap';
 import pogoBind from './pogoBind';
 import pogoset from './pogoset';
 import streams from './pogoObserve';
@@ -16,16 +16,15 @@ export function reload(url, container, data = {}) {
                 window.setTimeout(() => {
                     state.previouslyFocusedElement.focus();
                 }, 0);
-
             }
             pogoBind(container);
-        }
+        },
     });
 }
 
 function pogoStreams(el) {
-    const { streams, reload } = pogoset(el);
-    streams.subscribe(streams, params => reload(reload, el, params));
+    const { streams: observers, reload: loadUrl } = pogoset(el);
+    observers.subscribe(streams, params => reload(loadUrl, el, params));
 }
 
 
@@ -33,7 +32,7 @@ const subscribe = () => {
     register({
         hook: 'subscribe',
         type: 'immediate',
-        func: pogoStreams
+        func: pogoStreams,
     });
 };
 
