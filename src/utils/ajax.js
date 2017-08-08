@@ -8,7 +8,7 @@ const ajax = (type, params, data) => {
 
     xhr.onload = () => {
         if (xhr.status === 200) {
-            if(params.success) params.success(xhr.responseText);
+            if (params.success) params.success(xhr.responseText);
         } else {
             console.log(`Request failed.  Returned status of ${xhr.status}`);
         }

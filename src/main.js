@@ -2,8 +2,7 @@ import route from './route';
 import tabs from './tabs';
 import filterList from './filterList';
 import saveRecord from './saveRecord';
-import {store, pogoBind, pogoStreams} from './pogo';
-
+import { pogoBind, pogoStreams } from './pogo';
 
 
 filterList();

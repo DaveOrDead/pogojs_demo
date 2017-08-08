@@ -1,9 +1,8 @@
-import get from './utils/get';
-import  {addClass, removeClass, find} from './utils/dom';
-import {fetchPogoState, updatePogoState, pogoset, pogoBind, register, store, reload} from './pogo';
+import { addClass, removeClass, find } from './utils/dom';
+import { pogoset, register, reload } from './pogo';
 
 function openTab(el) {
-    const {load, params = {}} = pogoset(el);
+    const { load, params = {} } = pogoset(el);
     const container = find(`#${el.getAttribute('aria-controls')}`);
     addClass(el.parentNode, 'active');
     reload(load, container, params);
@@ -26,11 +25,11 @@ const tabs = () => {
     register({
         hook: 'tab',
         type: 'click',
-        func: switchTabs
+        func: switchTabs,
     }, {
         hook: 'defaultTab',
         type: 'immediate',
-        func: openTab
+        func: openTab,
     });
 };
 

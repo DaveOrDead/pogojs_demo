@@ -3,7 +3,7 @@ const toggleClass = (el, ...classNames) => {
     return el;
 };
 
-const hasClass = (el, className) =>  el.classList.contains(className);
+const hasClass = (el, className) => el.classList.contains(className);
 
 const addClass = (el, ...classNames) => {
     classNames.map(c => el.classList.add(c));
@@ -26,5 +26,5 @@ export {
         findAll,
         hasClass,
         removeClass,
-        toggleClass
+        toggleClass,
     };
