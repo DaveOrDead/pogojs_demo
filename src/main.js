@@ -2,8 +2,8 @@ import route from './route';
 import tabs from './tabs';
 import filterList from './filterList';
 import saveRecord from './saveRecord';
-import { pogoBind, pogoStreams } from './pogo';
-
+import {pogoStreams} from './pogo';
+import {bind} from 'pogojs';
 
 filterList();
 route();
@@ -12,4 +12,4 @@ saveRecord();
 tabs();
 
 // Must come last to register all
-pogoBind();
+bind();

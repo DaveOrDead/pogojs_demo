@@ -1,6 +1,5 @@
 import pogoState from './pogoState';
 
-
 const Observable = function Observable() {
     this.subscribers = {};
 };
@@ -33,7 +32,7 @@ Observable.prototype = {
                 self.subscribers[stream][i](pogoState[stream] || {});
             });
         });
-    },
+    }
 };
 
 const store = new Observable();

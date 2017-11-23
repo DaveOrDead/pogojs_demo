@@ -1,7 +1,7 @@
 import post from './utils/post';
-import { register, store } from './pogo';
+import {register} from 'pogojs';
+import {store} from './pogo';
 import formToJSON from './utils/formToJSON';
-
 
 function save(e) {
     e.preventDefault();
@@ -14,7 +14,7 @@ function save(e) {
         success: result => {
             const res = JSON.parse(result);
             store.publish(...res.streams);
-        },
+        }
     });
 }
 
@@ -22,9 +22,8 @@ const saveRecord = () => {
     register({
         hook: 'submit',
         type: 'submit',
-        func: save,
+        func: save
     });
 };
-
 
 export default saveRecord;

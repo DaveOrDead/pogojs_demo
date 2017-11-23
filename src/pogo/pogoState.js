@@ -3,7 +3,7 @@ const pogoState = {};
 export function updatePogoState(...newState) {
     newState.map(item => {
         Object.assign(pogoState, item);
-    })
+    });
     console.log(pogoState);
 }
 
