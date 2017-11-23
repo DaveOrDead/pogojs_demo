@@ -20,8 +20,8 @@ export function reload(url, container, data = {}) {
 }
 
 function pogoStreams(el) {
-    const {streams: observers, reload: loadUrl} = pogoset(el);
-    streams.subscribe(observers, params => reload(loadUrl, el, params));
+    const {streams: streamsToObserve, reload: loadUrl} = pogoset(el);
+    streams.subscribe(streamsToObserve, params => reload(loadUrl, el, params));
 }
 
 const subscribe = () => {
