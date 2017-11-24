@@ -14,6 +14,7 @@ allow task_count
 allow clients_tab
 allow tasks_tab
 allow add_person_async
+allow recent_table
 
 ### Optional parameters ###
 

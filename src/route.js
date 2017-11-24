@@ -8,14 +8,9 @@ function go(e) {
     const el = e.target;
     const {publish, params} = pogoset(el);
 
-    updatePogoState(
-        {
-            previouslyFocusedElement: el
-        },
-        {
-            [publish]: Object.assign({}, JSON.parse(params || '{}'))
-        }
-    );
+    updatePogoState({
+        [publish]: Object.assign({}, JSON.parse(params || '{}'))
+    });
 
     store.publish(publish);
 }

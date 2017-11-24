@@ -23,6 +23,10 @@ p_tab varchar c
       border: 2px solid pink;
   }
 
+  button > * {
+    pointer-events: none;
+  }
+
   .caret.caret-reversed {
     border-top-width: 0;
     border-bottom: 4px solid #000000;

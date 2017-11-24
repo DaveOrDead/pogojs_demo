@@ -9,11 +9,6 @@ export function reload(url, container, data = {}) {
         data,
         success: result => {
             container.innerHTML = result;
-            if (state.previouslyFocusedElement) {
-                window.setTimeout(() => {
-                    state.previouslyFocusedElement.focus();
-                }, 0);
-            }
             bind(container);
         }
     });

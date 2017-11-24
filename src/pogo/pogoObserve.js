@@ -1,40 +1,38 @@
 import pogoState from './pogoState';
 
-const Observable = function Observable() {
-    this.subscribers = {};
-};
+const subscribers = {};
 
-Observable.prototype = {
-    subscribe(streams, cb) {
-        const subs = streams.trim().split(/\s+/);
-        const self = this;
-        subs.map(stream => {
-            self.subscribers[stream] = self.subscribers[stream] || [];
-            self.subscribers[stream].push(cb);
-        });
-    },
+function subscribe(streams, cb) {
+    const subs = streams.trim().split(/\s+/);
+    subs.map(stream => {
+        subscribers[stream] = subscribers[stream] || [];
+        subscribers[stream].push(cb);
+    });
+}
 
-    unsubscribe(stream, cb) {
-        const items = this.subscribers[stream] || [];
-        for (let i = 0; i < items.length; i++) {
-            if (this.subscribers[i] === cb) {
-                this.subscribers.splice(i, 1);
-                return;
-            }
+function unsubscribe(stream, cb) {
+    const subs = subscribers[stream] || [];
+    subs.map(stream => {
+        if (subscribers[i] === cb) {
+            subscribers.splice(i, 1);
+            return;
         }
-    },
+    });
+}
 
-    publish(...streams) {
-        const self = this;
-        streams.map(stream => {
-            const subs = self.subscribers[stream] || [];
-            subs.map((s, i) => {
-                self.subscribers[stream][i](pogoState[stream] || {});
-            });
+function publish(...streams) {
+    streams.map(stream => {
+        const subs = subscribers[stream] || [];
+        subs.map((s, i) => {
+            subscribers[stream][i](pogoState[stream] || {});
         });
-    }
-};
+    });
+}
 
-const store = new Observable();
+const store = {
+    subscribe,
+    unsubscribe,
+    publish
+};
 
 export default store;

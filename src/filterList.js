@@ -5,7 +5,9 @@ function filter(e) {
     const el = e.target;
     const {publish, params} = pogoset(el);
 
-    updatePogoState(publish, Object.assign({}, JSON.parse(params || '{}'), {p_filter: el.value}));
+    updatePogoState({
+        [publish]: Object.assign({}, JSON.parse(params || '{}'), {p_filter: el.value})
+    });
 
     store.publish(publish);
 }
