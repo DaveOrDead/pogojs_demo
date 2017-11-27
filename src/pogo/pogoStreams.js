@@ -4,9 +4,17 @@ import state from './pogoState';
 import get from './../utils/get';
 
 export function reload(url, container, data = {}) {
+    let defaultParams = {};
+    const firstChild = container.firstElementChild;
+
+    if (firstChild) {
+        const {params} = pogoset(firstChild);
+        if (params) defaultParams = JSON.parse(params);
+    }
+
     get({
         url,
-        data,
+        data: Object.assign({}, defaultParams, data),
         success: result => {
             container.innerHTML = result;
             bind(container);
@@ -14,17 +22,17 @@ export function reload(url, container, data = {}) {
     });
 }
 
-function pogoStreams(el) {
+function subscribe(el) {
     const {streams: streamsToObserve, reload: loadUrl} = pogoset(el);
     streams.subscribe(streamsToObserve, params => reload(loadUrl, el, params));
 }
 
-const subscribe = () => {
+const init = () => {
     register({
         hook: 'subscribe',
         type: 'immediate',
-        func: pogoStreams
+        func: subscribe
     });
 };
 
-export default subscribe;
+export default init;

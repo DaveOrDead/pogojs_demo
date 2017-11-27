@@ -1,3 +1,4 @@
+drop table clients;
 create table clients
 (
    id serial,
@@ -20,6 +21,7 @@ insert into clients (first_name, last_name, email) values
    ('Alex'    , 'Nedoboi'    , 'alex@pogostack.org'       )
 ;
 
+drop table tasks;
 create table tasks
 (
    id serial,

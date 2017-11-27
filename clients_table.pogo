@@ -14,7 +14,9 @@ p_sort varchar first_name-d
 ?><%
 %>
 
-<table class="table table-striped">
+<table
+    class="table table-striped"
+    pogo-params='{"p_filter": "<%= p_filter %>", "p_sort": "<%= p_sort %>"}'>
    <thead>
       <tr>
          <th>First Name
